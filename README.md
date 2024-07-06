@@ -103,27 +103,98 @@ it is declarative way of creating custom images
 keep all the instruction a file to dockerfile and build the image.
 
 FROM:
+from should be teh first instructions to represent base os
  dockerfile:
    FROM almalinux:9
 
+push the code into central repo
+then got ec2 user clone the repository
+and go to the paricular folder
+ex: cd FROM/
+ ls -l 
+ docker builld -t <image-name>:version .
+ docker build -t from:1.0 .
+ docker images
 
+RUN: 
+we will use RUN instuction to install packages and configure them
+execute at the time of image creation.
+dockerfile: 
+  FROM almalinux:9 
+  RUN dnf install nginx -y
 
+git push
+git pull 
+cd RUN/
+docker builld -t <image-name>:version .
+docker build -t run:1.0 .
+docker images
 
+CMD:
+this instruction will run at the time of container creation.
+systemctl start backend -->> then only you can access backend application
+whatever the instructiobs you give in image to run as container, should run infinite times
 
+dockerfile:
+  FROM run:1.0
+  RUN dnf install nginx -y
+  CMD ["nginx","-g","daemon off;"]
 
+git push
+git pull 
+cd CMD/
+docker builld -t <image-name>:version .
+docker build -t cmd:1.0 .
+docker images
+docker run -d -p <host-port>:<container-port> cmd:1.0
 
+container port should be 80
+ex:docker run -d -p 8081:80 cmd:1.0
+docke  ps
 
+NOTE: systemctl command will not work containers and images
+RUN vs CMD:
+RUN: executes at build time image creation time
+CMD: only executes at the time of container creaion that is docker run.
 
+LABEL:
+docker file:
+  FROM almalinux:9
+  LABEL author="PAVAN" \
+  course="Docker" \
+  discription="docker practice"
 
+git push
+git pull 
+cd LABEL/
+ls-l 
+docker builld -t <image-name>:version .
+ex:docker build -t label:1.0 .
+docker images
 
+EXPOSE:
+expose instrcutions will let the users know what are the ports used by image/container
+dockrfile: 
+FROM almalinux:9
+EXPOSE 80
 
+git push
+git pull 
+cd LABEL/
+ls-l 
+docker builld -t <image-name>:version .
+ex:docker build -t expose:1.0 .
+docker images
 
+How can you push the image into docker-hub:
+docker push url/username/image-name:tag
+ex: docker push <nexus-url>/pavan93v/expose:1.0
 
+COPY vs ADD:
+COPY and ADD both are to copy the files from workspace to docker image but copy had to have advantages
 
-
-
-
-
+1. it can directly download content from internet into the image.
+2. it can directly untart the files into the image.
 
 ENTRYPOINT:
   dockerfile:
