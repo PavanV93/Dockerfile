@@ -1,5 +1,5 @@
 docker hub
-user name:Pavan93V
+
 
 create docker iec2 isntance in aws account
 copy the public ip and login to supperputty with the public ip and run the below commands
@@ -321,5 +321,21 @@ docker run -d foldername:1.0
 This is useful as a trigger, if some one is trying to use your image.
 you can force them to keep somefiles in their workspace or some configuration
 
+EXPENSE:
+backend:
+ec2-user) curl https://raw.githubusercontent.com/PavanV93/expense-docker/main/mysql/install%20docker.sh | sudo bash
+logot and login again
+sudo su -
+lsblk
+
+sudo growpart /dev/nvme0n1 4
+
+sudo lvextend -l +50%FREE /dev/RootVG/rootVol
+
+sudo lvextend -l +50%FREE /dev/RootVG/varVol
+
+Frontend:
+
+Docker compose:
 
 
