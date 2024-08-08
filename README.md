@@ -323,10 +323,14 @@ docker images
 
 docker run -d foldername:1.0   
 
+docker run -d -p 80:80 onbuild-test:1.0
+
 This is useful as a trigger, if some one is trying to use your image.
 you can force them to keep somefiles in their workspace or some configuration
 
 EXPENSE:
+mysql:
+
 backend:
 ec2-user) curl https://raw.githubusercontent.com/PavanV93/expense-docker/main/mysql/install%20docker.sh | sudo bash
 logot and login again
