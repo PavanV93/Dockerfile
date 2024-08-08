@@ -39,6 +39,8 @@ sudo usermod -aG docker <user-name>
 
 ex: sudo usermod -aG docker ec2-user 
 
+refresh the ec2 termonal once and re login 
+
 check you are able to accesss or not like user 
 docker ps -->>it will show running containers 
 docker ps -a -->> to check all running container
