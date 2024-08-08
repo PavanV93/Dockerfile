@@ -247,7 +247,7 @@ the best practices you should not let docker container to run to the root access
 
 FROM almalinux:9
 RUN adduser expense
-USER expense
+USER walet
 CMD ["sleep","100"]
 
 git pull "repo path"
