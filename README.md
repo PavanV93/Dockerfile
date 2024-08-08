@@ -238,6 +238,9 @@ docker ps
 docker images
 
 docker run -d user:1.0
+docker exec -it <container-id> bash
+
+you should not let containers running with root access
 
 whats are the best practices of docker?
 the best practices you should not let docker container to run to the root access.
